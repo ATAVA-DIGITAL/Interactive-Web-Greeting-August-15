@@ -223,21 +223,21 @@
       line-height: 1.6;
     }
 
-    /* Footer Layout: Logo on Left, Details Right Next to It */
+    /* Footer Branding Layout */
     .footer-branding {
       background: #000000;
-      padding: 14px 16px;
+      padding: 12px 10px;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 10px;
       border-top: 1px solid #334155;
     }
 
     .company-logo {
-      width: 52px;
-      height: 52px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       border: 2px solid #ffd700;
       object-fit: cover;
@@ -254,22 +254,26 @@
 
     .footer-title {
       color: #ffd700;
-      font-size: 12px;
+      font-size: 10.5px; /* Size adjusted so TRADING stays on one line */
       font-weight: 800;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
+      white-space: nowrap; /* Ensures TRADING never breaks to next line */
     }
 
     .footer-sub {
       color: #cbd5e1;
-      font-size: 10px;
+      font-size: 9.5px;
       margin-top: 3px;
-      line-height: 1.35;
+      line-height: 1.3;
+      text-align: left;
     }
 
     .footer-location {
       color: #ffffff;
       font-weight: 700;
-      margin-top: 1px;
+      margin-top: 2px;
+      text-align: center; /* Centered Vazhakkad */
+      width: 100%;
     }
   </style>
 </head>
@@ -329,9 +333,11 @@
       </div>
     </div>
 
-    <!-- Correct Footer: Logo on Left, Details Aligned Right Next to It -->
+    <!-- Corrected Footer Area -->
     <div class="footer-branding">
-      <img src="logo.png" class="company-logo" id="companyLogo" alt="ATAVA Logo">
+      <!-- Correct GitHub Image Path -->
+      <img src="290947060.jpg" class="company-logo" id="companyLogo" alt="ATAVA Logo">
+      
       <div class="footer-text-group">
         <div class="footer-title">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
         <div class="footer-sub">
