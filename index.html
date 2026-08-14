@@ -132,7 +132,6 @@
       letter-spacing: 3px;
     }
 
-    /* Stylish Ashoka Chakra Icon beside DAY */
     .ashoka-chakra-icon {
       width: 32px;
       height: 32px;
@@ -156,7 +155,7 @@
       z-index: 2;
     }
 
-    /* Middle Compact Content Box */
+    /* Middle Content Box */
     .middle-content {
       background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
       padding: 10px 20px 20px 20px;
@@ -167,7 +166,6 @@
       z-index: 2;
     }
 
-    /* Profile Photo Ring */
     .profile-frame {
       width: 140px;
       height: 140px;
@@ -187,7 +185,6 @@
       object-fit: cover;
     }
 
-    /* Custom Name Badge */
     .name-badge {
       margin-top: 15px;
       background: linear-gradient(135deg, #000046, #1cb5e0);
@@ -208,12 +205,11 @@
       display: block;
     }
 
-    /* Updated Greeting Message Box */
     .greeting-box {
       margin-top: 18px;
       background: rgba(255, 255, 255, 0.95);
-      border-left: 5px solid #138808;  /* Green Border */
-      border-right: 5px solid #ff9933; /* Saffron Border */
+      border-left: 5px solid #138808;
+      border-right: 5px solid #ff9933;
       border-radius: 12px;
       padding: 15px;
       text-align: center;
@@ -227,50 +223,50 @@
       line-height: 1.6;
     }
 
-    /* Updated Footer Branding (Logo & Text Alignment) */
+    /* Centered Footer Branding Section */
     .footer-branding {
       background: #000000;
-      padding: 12px 15px;
+      padding: 16px 15px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 15px; /* Space between logo and text */
+      text-align: center;
       border-top: 1px solid #334155;
     }
 
     .company-logo {
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
-      border: 2px solid #d4af37; /* Golden border for logo */
+      border: 2px solid #ffd700;
       object-fit: cover;
-      background: #fff;
-    }
-
-    .footer-text {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
+      margin-bottom: 8px;
+      background: #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
     .footer-title {
       color: #ffd700;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.5px;
+      text-align: center;
     }
 
     .footer-sub {
       color: #cbd5e1;
-      font-size: 10px;
-      margin-top: 3px;
+      font-size: 11px;
+      margin-top: 4px;
       line-height: 1.4;
+      text-align: center;
     }
 
     .footer-location {
       color: #ffffff;
       font-weight: 700;
       margin-top: 2px;
+      text-align: center;
     }
   </style>
 </head>
@@ -297,7 +293,6 @@
       <div class="title-main">HAPPY INDEPENDENCE</div>
       <div class="title-day-wrapper">
         <span class="title-day">DAY</span>
-        <!-- Ashoka Chakra SVG -->
         <svg class="ashoka-chakra-icon" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="45" fill="none" stroke="#000080" stroke-width="6"/>
           <circle cx="50" cy="50" r="8" fill="#000080"/>
@@ -316,7 +311,7 @@
       <div class="badge-date">15TH AUGUST</div>
     </div>
 
-    <!-- Middle Compact Content Box -->
+    <!-- Middle Content Box -->
     <div class="middle-content">
       <div class="profile-frame">
         <img id="userImg" src="https://via.placeholder.com/150" alt="Profile Photo">
@@ -326,23 +321,20 @@
         <span id="displayName"></span>
       </div>
 
-      <!-- Updated Greeting Box -->
       <div class="greeting-box">
-        <p>Wishing you all a very Happy Independence Day! Let's celebrate the freedom, pride, and unity of our Great Nation! 🇮🇳</p>
+        <p>Wishing you all a very Happy Independence Day! Let's celebrate the freedom, pride, and unity of our Great Nation!</p>
       </div>
     </div>
 
-    <!-- Updated Bottom Footer with Logo -->
+    <!-- Perfect Centered Footer with Embedded ATAVA Logo -->
     <div class="footer-branding">
-      <!-- NOTE: Replace 'your-logo.jpg' with the exact name of your logo file -->
-      <img src="your-logo.jpg" class="company-logo" alt="ATAVA Logo">
+      <!-- Embedded Logo directly in DataURL to prevent missing image issues -->
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23000'/><text x='50%' y='55%' font-size='22' font-weight='bold' fill='%23ffd700' text-anchor='middle' dominant-baseline='middle'>ATAVA</text></svg>" class="company-logo" id="companyLogo" alt="ATAVA Logo">
       
-      <div class="footer-text">
-        <div class="footer-title">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
-        <div class="footer-sub">
-          Data Entry | Typing Works | Poster & Badge Design | Digital Services
-          <div class="footer-location">Vazhakkad</div>
-        </div>
+      <div class="footer-title">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
+      <div class="footer-sub">
+        Data Entry | Typing Works | Poster & Badge Design | Digital Services
+        <div class="footer-location">Vazhakkad</div>
       </div>
     </div>
 
@@ -367,7 +359,7 @@
       }
     }
 
-    // Clean Download Handler
+    // High Resolution Download Handler
     function downloadPoster() {
       const card = document.getElementById('posterCard');
       html2canvas(card, {
