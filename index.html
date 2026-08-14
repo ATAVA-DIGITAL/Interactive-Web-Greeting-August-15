@@ -156,7 +156,7 @@
       z-index: 2;
     }
 
-    /* Middle Compact Content Box with Attractive Colors */
+    /* Middle Compact Content Box */
     .middle-content {
       background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
       padding: 10px 20px 20px 20px;
@@ -175,7 +175,7 @@
       border: 4px solid #ff9933;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       overflow: hidden;
-      margin-top: -50px; /* Pull photo up gracefully */
+      margin-top: -50px; 
       background: #ffffff;
       position: relative;
       z-index: 5;
@@ -208,55 +208,63 @@
       display: block;
     }
 
-    /* Greeting Message Box */
+    /* Updated Greeting Message Box */
     .greeting-box {
       margin-top: 18px;
-      background: rgba(255, 255, 255, 0.9);
-      border-left: 5px solid #138808;
+      background: rgba(255, 255, 255, 0.95);
+      border-left: 5px solid #138808;  /* Green Border */
+      border-right: 5px solid #ff9933; /* Saffron Border */
       border-radius: 12px;
-      padding: 12px 15px;
+      padding: 15px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     }
 
     .greeting-box p {
-      color: #1e293b;
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.5;
+      color: #0f172a;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.6;
     }
 
-    /* Footer Branding (Centered) */
+    /* Updated Footer Branding (Logo & Text Alignment) */
     .footer-branding {
       background: #000000;
-      padding: 15px;
+      padding: 12px 15px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      gap: 15px; /* Space between logo and text */
       border-top: 1px solid #334155;
     }
 
-    .footer-logo {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 6px;
+    .company-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #d4af37; /* Golden border for logo */
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .footer-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
     }
 
     .footer-title {
       color: #ffd700;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.5px;
     }
 
     .footer-sub {
       color: #cbd5e1;
-      font-size: 11px;
+      font-size: 10px;
       margin-top: 3px;
       line-height: 1.4;
-      text-align: center;
     }
 
     .footer-location {
@@ -289,11 +297,10 @@
       <div class="title-main">HAPPY INDEPENDENCE</div>
       <div class="title-day-wrapper">
         <span class="title-day">DAY</span>
-        <!-- Ashoka Chakra SVG right beside DAY -->
+        <!-- Ashoka Chakra SVG -->
         <svg class="ashoka-chakra-icon" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="45" fill="none" stroke="#000080" stroke-width="6"/>
           <circle cx="50" cy="50" r="8" fill="#000080"/>
-          <!-- 24 Spokes -->
           <g stroke="#000080" stroke-width="2.5">
             <line x1="50" y1="50" x2="50" y2="5"/><line x1="50" y1="50" x2="50" y2="95"/>
             <line x1="50" y1="50" x2="5" y2="50"/><line x1="50" y1="50" x2="95" y2="50"/>
@@ -316,20 +323,26 @@
       </div>
 
       <div class="name-badge">
-        <span id="displayName">ABDUL SALAM</span>
+        <span id="displayName"></span>
       </div>
 
+      <!-- Updated Greeting Box -->
       <div class="greeting-box">
         <p>Wishing you all a very Happy Independence Day! Let's celebrate the freedom, pride, and unity of our Great Nation! 🇮🇳</p>
       </div>
     </div>
 
-    <!-- Bottom Footer Centered -->
+    <!-- Updated Bottom Footer with Logo -->
     <div class="footer-branding">
-      <div class="footer-title">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
-      <div class="footer-sub">
-        Data Entry | Typing Works | Poster & Badge Design | Digital Services
-        <div class="footer-location">Vazhakkad</div>
+      <!-- NOTE: Replace 'your-logo.jpg' with the exact name of your logo file -->
+      <img src="your-logo.jpg" class="company-logo" alt="ATAVA Logo">
+      
+      <div class="footer-text">
+        <div class="footer-title">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
+        <div class="footer-sub">
+          Data Entry | Typing Works | Poster & Badge Design | Digital Services
+          <div class="footer-location">Vazhakkad</div>
+        </div>
       </div>
     </div>
 
@@ -342,7 +355,7 @@
       document.getElementById('displayName').innerText = val ? val : 'YOUR NAME';
     }
 
-    // Photo Loader using FileReader (Prevents download hiding issue)
+    // Photo Loader using FileReader
     function loadPhoto(event) {
       const reader = new FileReader();
       reader.onload = function() {
@@ -360,7 +373,7 @@
       html2canvas(card, {
         useCORS: true,
         allowTaint: true,
-        scale: 3, // High Resolution output
+        scale: 3, 
         logging: false
       }).then(canvas => {
         const link = document.createElement('a');
