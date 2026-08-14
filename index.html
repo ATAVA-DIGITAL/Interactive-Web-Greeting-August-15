@@ -223,50 +223,53 @@
       line-height: 1.6;
     }
 
-    /* Centered Footer Branding Section */
+    /* Footer Layout: Logo on Left, Details Right Next to It */
     .footer-branding {
       background: #000000;
-      padding: 16px 15px;
+      padding: 14px 16px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      gap: 14px;
       border-top: 1px solid #334155;
     }
 
     .company-logo {
-      width: 55px;
-      height: 55px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       border: 2px solid #ffd700;
       object-fit: cover;
-      margin-bottom: 8px;
-      background: #ffffff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      background: #000000;
+      flex-shrink: 0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    }
+
+    .footer-text-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
     }
 
     .footer-title {
       color: #ffd700;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: 0.5px;
-      text-align: center;
+      letter-spacing: 0.3px;
     }
 
     .footer-sub {
       color: #cbd5e1;
-      font-size: 11px;
-      margin-top: 4px;
-      line-height: 1.4;
-      text-align: center;
+      font-size: 10px;
+      margin-top: 3px;
+      line-height: 1.35;
     }
 
     .footer-location {
       color: #ffffff;
       font-weight: 700;
-      margin-top: 2px;
-      text-align: center;
+      margin-top: 1px;
     }
   </style>
 </head>
@@ -322,19 +325,19 @@
       </div>
 
       <div class="greeting-box">
-        <p>Wishing you all a very Happy Independence Day! Let's celebrate the freedom, pride, and unity of our Great Nation!</p>
+        <p>Wishing you all a very Happy Independence Day! Let's celebrate the freedom, pride, and unity of our Great Nation! 🇮🇳</p>
       </div>
     </div>
 
-    <!-- Perfect Centered Footer with Embedded ATAVA Logo -->
+    <!-- Correct Footer: Logo on Left, Details Aligned Right Next to It -->
     <div class="footer-branding">
-      <!-- Embedded Logo directly in DataURL to prevent missing image issues -->
-      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23000'/><text x='50%' y='55%' font-size='22' font-weight='bold' fill='%23ffd700' text-anchor='middle' dominant-baseline='middle'>ATAVA</text></svg>" class="company-logo" id="companyLogo" alt="ATAVA Logo">
-      
-      <div class="footer-title">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
-      <div class="footer-sub">
-        Data Entry | Typing Works | Poster & Badge Design | Digital Services
-        <div class="footer-location">Vazhakkad</div>
+      <img src="logo.png" class="company-logo" id="companyLogo" alt="ATAVA Logo">
+      <div class="footer-text-group">
+        <div class="footer-title">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
+        <div class="footer-sub">
+          Data Entry | Typing Works | Poster & Badge Design | Digital Services
+          <div class="footer-location">Vazhakkad</div>
+        </div>
       </div>
     </div>
 
