@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Independence Day - Wish Card Generator</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Yatra+One&display=swap" rel="stylesheet">
+  <!-- html2canvas for Download Feature -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #ff9933;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Controls Panel */
+    .controls-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 450px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .btn-download {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(45deg, #ff9933, #138808);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Card Preview Design Area */
+    .card-container {
+      width: 380px;
+      height: 580px;
+      background: linear-gradient(180deg, #FF9933 0%, #FF9933 30%, #FFFFFF 30%, #FFFFFF 70%, #138808 70%, #138808 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 15px;
+      color: #000;
+    }
+
+    /* Top Section */
+    .card-header {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .card-header h2 {
+      font-family: 'Yatra One', cursive;
+      font-size: 26px;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      letter-spacing: 1px;
+    }
+
+    .card-header p {
+      font-size: 12px;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Photo Frame */
+    .photo-frame {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid #000080; /* Ashoka Chakra Blue */
+      overflow: hidden;
+      background: #f0f0f0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Ashoka Chakra Watermark */
+    .chakra-bg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 220px;
+      opacity: 0.12;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Name & Greeting Text */
+    .card-body {
+      text-align: center;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .user-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #000080;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      word-break: break-word;
+    }
+
+    .wish-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      padding: 0 10px;
+      line-height: 1.4;
+    }
+
+    /* Footer Branding */
+    .card-footer {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 2;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .company-logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid #FFD700;
+      object-fit: cover;
+    }
+
+    .footer-text {
+      color: #fff;
+      text-align: left;
+    }
+
+    .footer-text .powered {
+      font-size: 10px;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-text .services {
+      font-size: 8px;
+      color: #ddd;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🇮🇳 Independence Day Wish Card 🇮🇳</h1>
+
+  <!-- Inputs -->
+  <div class="controls-container">
+    <div class="form-group">
+      <label for="nameInput">നിങ്ങളുടെ പേര് (Your Name):</label>
+      <input type="text" id="nameInput" placeholder="Enter your name" oninput="updateName()">
+    </div>
+    <div class="form-group">
+      <label for="photoInput">ഫോട്ടോ തിരഞ്ഞെടുക്കുക (Your Photo):</label>
+      <input type="file" id="photoInput" accept="image/*" onchange="updatePhoto(event)">
+    </div>
+    <button class="btn-download" onclick="downloadCard()">Download Card (ഡൗൺലോഡ്)</button>
+  </div>
+
+  <!-- Card Preview -->
+  <div class="card-container" id="wishCard">
+    <!-- Ashoka Chakra Watermark -->
+    <svg class="chakra-bg" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45" fill="none" stroke="#000080" stroke-width="2"/>
+      <circle cx="50" cy="50" r="8" fill="#000080"/>
+      <!-- Spokes -->
+      <g stroke="#000080" stroke-width="1">
+        <line x1="50" y1="5" x2="50" y2="95"/>
+        <line x1="5" y1="50" x2="95" y2="50"/>
+        <line x1="18.18" y1="18.18" x2="81.82" y2="81.82"/>
+        <line x1="81.82" y1="18.18" x2="18.18" y2="81.82"/>
+        <line x1="9.55" y1="32.64" x2="90.45" y2="67.36"/>
+        <line x1="32.64" y1="9.55" x2="67.36" y2="90.45"/>
+        <line x1="67.36" y1="9.55" x2="32.64" y2="90.45"/>
+        <line x1="90.45" y1="32.64" x2="9.55" y2="67.36"/>
+      </g>
+    </svg>
+
+    <!-- Top Heading -->
+    <div class="card-header">
+      <h2>HAPPY INDEPENDENCE DAY</h2>
+      <p>15th AUGUST</p>
+    </div>
+
+    <!-- Photo -->
+    <div class="photo-frame">
+      <img id="userPhoto" src="https://via.placeholder.com/160?text=Your+Photo" alt="User Photo">
+    </div>
+
+    <!-- Name & Message -->
+    <div class="card-body">
+      <div class="user-name" id="userName">YOUR NAME HERE</div>
+      <div class="wish-text">
+        Wishing you all a very Happy Independence Day! Let's celebrate the freedom and unity of our Great Nation! 🇮🇳
+      </div>
+    </div>
+
+    <!-- Company Branding Footer -->
+    <div class="card-footer">
+      <img src="logo.jpg" alt="Logo" class="company-logo">
+      <div class="footer-text">
+        <div class="powered">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
+        <div class="services">Data Entry | Typing Works | Poster & Badge Design | Digital Services</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Live Name Update
+    function updateName() {
+      const input = document.getElementById('nameInput').value;
+      const nameDisplay = document.getElementById('userName');
+      nameDisplay.innerText = input.trim() !== "" ? input : "YOUR NAME HERE";
+    }
+
+    // Live Photo Preview
+    function updatePhoto(event) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        const output = document.getElementById('userPhoto');
+        output.src = reader.result;
+      };
+      if(event.target.files[0]) {
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    }
+
+    // Download Card as Image
+    function downloadCard() {
+      const card = document.getElementById('wishCard');
+      
+      html2canvas(card, {
+        scale: 3, // High quality image
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'Independence-Day-Wish.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
