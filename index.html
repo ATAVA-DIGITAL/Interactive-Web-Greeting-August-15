@@ -47,7 +47,7 @@
     }
 
     .form-group {
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     .form-group label {
@@ -59,7 +59,7 @@
 
     .form-group input[type="text"] {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       border-radius: 8px;
       border: none;
       outline: none;
@@ -71,7 +71,7 @@
     .form-group input[type="file"] {
       width: 100%;
       color: #fff;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .btn-download {
@@ -98,7 +98,7 @@
     .card-container {
       width: 380px;
       height: 620px;
-      background: linear-gradient(180deg, #ffffff 0%, #fffbf2 50%, #f2fbf3 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #fffbf2 40%, #eefbf0 100%);
       border-radius: 20px;
       position: relative;
       overflow: hidden;
@@ -129,12 +129,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%, rgba(255,255,255,0.9) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 60%, rgba(255,255,255,0.9) 100%);
     }
 
     .card-header h2 {
       font-family: 'Yatra One', cursive;
-      font-size: 26px;
+      font-size: 25px;
       color: #ffffff;
       text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.9);
       letter-spacing: 1px;
@@ -158,14 +158,14 @@
 
     /* Ashoka Chakra Placed at Top Center below Header Text */
     .chakra-top {
-      width: 45px;
-      height: 45px;
+      width: 42px;
+      height: 42px;
       z-index: 2;
       margin-top: 6px;
       filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
     }
 
-    /* Photo Section */
+    /* User Photo Section */
     .photo-container {
       display: flex;
       justify-content: center;
@@ -189,7 +189,7 @@
       object-fit: cover;
     }
 
-    /* Name Section with Fancy Plate / Background */
+    /* Name Section with Golden-Blue Badge */
     .name-section {
       text-align: center;
       padding: 0 15px;
@@ -199,7 +199,7 @@
     .name-badge {
       background: linear-gradient(135deg, #000080, #0a1128);
       color: #ffffff;
-      padding: 8px 20px;
+      padding: 8px 24px;
       border-radius: 25px;
       display: inline-block;
       box-shadow: 0 4px 12px rgba(0,0,128,0.3);
@@ -230,7 +230,7 @@
       text-align: center;
     }
 
-    /* Footer Branding */
+    /* Footer Branding - PERMANENT EMBEDDED ATAVA LOGO */
     .card-footer {
       background: #000000;
       padding: 10px 14px;
@@ -245,7 +245,7 @@
       height: 50px;
       border-radius: 50%;
       border: 1.5px solid #d4af37;
-      object-fit: contain;
+      object-fit: cover;
       background: #000;
       flex-shrink: 0;
     }
@@ -285,10 +285,6 @@
       <label for="photoInput">ഫോട്ടോ തിരഞ്ഞെടുക്കുക (Your Photo):</label>
       <input type="file" id="photoInput" accept="image/*" onchange="updatePhoto(event)">
     </div>
-    <div class="form-group">
-      <label for="logoInput">കമ്പനി ലോഗോ (Company Logo - Optional):</label>
-      <input type="file" id="logoInput" accept="image/*" onchange="updateLogo(event)">
-    </div>
     <button class="btn-download" onclick="downloadCard()">Download Card (ഡൗൺലോഡ്)</button>
   </div>
 
@@ -317,17 +313,17 @@
       </svg>
     </div>
 
-    <!-- Centered Photo Frame -->
+    <!-- Centered User Photo Frame -->
     <div class="photo-container">
       <div class="photo-frame">
-        <img id="userPhoto" src="https://via.placeholder.com/140?text=ADD+PHOTO" alt="User Photo">
+        <img id="userPhoto" src="https://via.placeholder.com/140/ffffff/ff9933?text=ADD+PHOTO" alt="User Photo">
       </div>
     </div>
 
     <!-- Name Section with Golden-Blue Badge -->
     <div class="name-section">
       <div class="name-badge">
-        <div class="user-name" id="userName">ENTER YOUR NAME</div>
+        <div class="user-name" id="userName">YOUR NAME HERE</div>
       </div>
     </div>
 
@@ -336,9 +332,16 @@
       Wishing you all a very Happy Independence Day! Let's celebrate the freedom, pride, and unity of our Great Nation! 🇮🇳
     </div>
 
-    <!-- Footer with Full Company Logo -->
+    <!-- Footer with PERMANENT Embedded Company Logo -->
     <div class="card-footer">
-      <img id="companyLogo" class="company-logo" src="https://via.placeholder.com/50/000000/FFD700?text=ATAVA" alt="ATAVA Logo">
+      <svg class="company-logo" viewBox="0 0 300 300">
+        <rect width="300" height="300" fill="#1c1c1c"/>
+        <circle cx="150" cy="110" r="65" fill="none" stroke="#d4af37" stroke-width="8"/>
+        <path d="M 115 150 L 150 70 L 185 150" stroke="#d4af37" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <path d="M 130 120 L 180 85 M 165 85 L 180 85 L 180 100" stroke="#ffd700" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="150" y="210" font-family="'Poppins', sans-serif" font-weight="800" font-size="32" fill="#ffd700" text-anchor="middle" letter-spacing="4">ATAVA</text>
+        <text x="150" y="235" font-family="'Poppins', sans-serif" font-weight="600" font-size="12" fill="#ffffff" text-anchor="middle" letter-spacing="1">DIGITAL SERVICES & TRADING</text>
+      </svg>
       <div class="footer-text">
         <div class="powered">Powered by : ATAVA DIGITAL SERVICES & TRADING</div>
         <div class="services">Data Entry | Typing Works | Poster & Badge Design | Digital Services</div>
@@ -366,22 +369,12 @@
       }
     }
 
-    function updateLogo(event) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        const output = document.getElementById('companyLogo');
-        output.src = reader.result;
-      };
-      if(event.target.files[0]) {
-        reader.readAsDataURL(event.target.files[0]);
-      }
-    }
-
     function downloadCard() {
       const card = document.getElementById('wishCard');
       html2canvas(card, {
         scale: 3,
-        useCORS: true
+        useCORS: true,
+        allowTaint: true
       }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'Independence-Day-Wish.png';
